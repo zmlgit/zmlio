@@ -26,10 +26,10 @@
         <div class="collapse navbar-collapse navbar-right nav-pills">
             <ul class="nav navbar-nav" id="nav">
                 <li><a href="#">生活</a></li>
-                <li><a href="#">技能</a></li>
+                <li><a href="#">工作</a></li>
                 <li><a href="#">随笔</a></li>
                 <li><a href="#">收藏</a></li>
-                <li><a href="#">关于我</a></li>
+                <li><a href="#">关于</a></li>
                 <%--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Java <b class="caret"></b>
@@ -55,7 +55,7 @@
 
             <p>
 
-            <h3 class="text-center"><strong>做个安安静静的程序员</strong></h3></p>
+            <h3 class="text-center" style="cursor: default"><strong>做个安安静静的程序员</strong></h3></p>
         </div>
     </div>
 </div>
