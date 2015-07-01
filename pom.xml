@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.zmlio</groupId>
+    <artifactId>zmlio</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>zmlio Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!--编译输出的时候文件编码 -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--spring 的版本，使用spring4 因为它包含了对Hibernate4的支持 -->
+        <project.spring.version>4.1.6.RELEASE</project.spring.version>
+
+        <!--hibernate的版本，使用hibernate4因为hibernate4 集成了多租户数据库的支持 -->
+        <project.hibernate.version>4.3.9.Final</project.hibernate.version>
+
+        <!--shiro的版本 -->
+        <project.shiro.version>1.2.3</project.shiro.version>
+
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>zmlio</finalName>
+    </build>
+</project>
