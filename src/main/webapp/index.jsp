@@ -55,7 +55,7 @@
 
             <p>
 
-            <h3 class="text-center"><strong>一个慵懒的程序员</strong></h3></p>
+            <h3 class="text-center"><strong>做个安安静静的程序员</strong></h3></p>
         </div>
     </div>
 </div>
