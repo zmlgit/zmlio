@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/" class="navbar-brand">
-                ZMLio.cn
+                zmlio.cn
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-right nav-pills">
