@@ -19,7 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/">
+            <a href="/" target="_self">
                 <img src="img/logo.png" alt="" height="40" style="margin-left: 20px; margin-bottom: 5px;margin-top: 5px;">
             </a>
         </div>
