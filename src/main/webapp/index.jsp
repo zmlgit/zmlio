@@ -1,4 +1,4 @@
-<%@page pageEncoding="UTF-8" %>
+<%--<%@page pageEncoding="UTF-8" %>--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,25 @@
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
 </head>
-<body>
+<style type="text/css">
+
+    html, body {height: 100%;}
+
+    .main{
+        min-height: 100%;
+        margin-top: -90px;
+        padding-top: 90px;
+    }
+    table{
+        display: none;
+    }
+    td{
+        height: 100px;
+        width: 100px;
+    }
+
+</style>
+<body style="position: relative">
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header" style="position: relative;">
@@ -20,7 +38,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/" target="_self">
-                <img src="img/logo.png" alt="" height="40" style="margin-left: 20px; margin-bottom: 5px;margin-top: 5px;">
+                <img src="img/logo.png" alt="" height="40"
+                     style="margin-left: 20px; margin-bottom: 5px;margin-top: 5px;">
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-right nav-pills">
@@ -46,8 +65,10 @@
                 </li>--%>
             </ul>
         </div>
+
     </div>
 </nav>
+<div class="main">
 <div class="banner">
     <div class="container">
         <div style="margin-left:auto;margin-right:auto;display:table;">
@@ -59,8 +80,9 @@
         </div>
     </div>
 </div>
+</div>
 
-<footer class="text-center navbar navbar-default ">
+<footer class="text-center navbar navbar-default " style="margin-top: -31px;margin-bottom: 0px;">
     <p style="margin:auto">
         <small>Powered by:<a href="mailto:zmanliang@163.com">zmanliang@163.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
                 href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备15031683号</a></small>
@@ -70,28 +92,19 @@
 <script type="text/javascript" src="lib/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    $(function () {
-        if (document.documentElement.clientHeight > document.body.clientHeight) {
-            $("footer").addClass('navbar-fixed-bottom');
-        } else {
-            $("footer").removeClass('navbar-fixed-bottom');
+    var count=0;
+    function toggle(){
+        if(count++%2==0){
+            $("table").show();
+        }else{
+            $("table").hide();
         }
-        ;
-        $(window).resize(function (event) {
-            /* Act on the event */
-            if (document.documentElement.clientHeight > document.body.clientHeight) {
-                $("footer").addClass('navbar-fixed-bottom');
-            } else {
-                $("footer").removeClass('navbar-fixed-bottom');
-            }
-        });
+    }
 
-        $("#nav li").hover(function () {
-            $(this).addClass("active");
-        }, function () {
-            $(this).removeClass("active");
-        });
-
+    $("#nav li").hover(function () {
+        $(this).addClass("active");
+    }, function () {
+        $(this).removeClass("active");
     });
 </script>
 </html>
