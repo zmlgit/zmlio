@@ -88,7 +88,7 @@
 		<appender-ref ref="stdout" />
 	</logger>
 
-    <logger name="cn.zmlio.personsite" additivity="false">
+    <logger name="cn.zmlio.dao" additivity="false">
         <level value="INFO" class="org.apache.log4j.Level">
         </level>
         <appender-ref ref="stdout" />
