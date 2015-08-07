@@ -175,8 +175,6 @@
             <artifactId>shiro-all</artifactId>
             <version>${project.shiro.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>

@@ -19,6 +19,7 @@
         </property>
     </bean>
     <!--数据源-->
+<!--
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 
         <property name="username" value="${zmlio.datasource.db.username}"/>
@@ -34,6 +35,15 @@
         <property name="filters" value="stat,log4j,wall"/>
 
     </bean>
+-->
+
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
+        <property name="jdbcUrl" value="${zmlio.datasource.db.url}"/>
+        <property name="password" value="${zmlio.datasource.db.password}"/>
+        <property name="driverClass" value="${zmlio.datasource.db.drivername}"/>
+        <property name="user" value="${zmlio.datasource.db.username}"/>
+    </bean>
+
 
     <!--会化工厂-->
     <bean id="sessionFactory"
