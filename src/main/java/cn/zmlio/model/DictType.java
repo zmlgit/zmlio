@@ -1,5 +1,6 @@
 package cn.zmlio.model;
 
+import cn.zmlio.service.IBaseService;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "t_dictType")
 public class DictType {
 
-    private String typeId;
+    private int typeId;
 
     private DictType parentType;
 
@@ -22,13 +23,12 @@ public class DictType {
 
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getTypeId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(String typeId) {
+    public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
 

@@ -27,4 +27,9 @@ public class ApplicationContext implements ApplicationContextAware {
 
         return context;
     }
+
+    public static <T> T getBean(Class<T> clazz){
+        return getContext().getBean(clazz);
+    }
+
 }

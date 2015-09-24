@@ -11,13 +11,7 @@
 </head>
 <style type="text/css">
 
-    html, body {height: 100%;}
 
-    .main{
-        min-height: 100%;
-        margin-top: -90px;
-        padding-top: 90px;
-    }
     table{
         display: none;
     }

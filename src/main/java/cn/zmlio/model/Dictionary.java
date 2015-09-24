@@ -20,7 +20,7 @@ public class Dictionary {
     private DictType type;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getDictId() {
         return dictId;
     }

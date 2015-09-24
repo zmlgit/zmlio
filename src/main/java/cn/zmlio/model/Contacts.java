@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "t_contacts")
 public class Contacts {
 
-    private String contactId;
+    private int contactId;
 
     private District area;
 
@@ -35,15 +35,13 @@ public class Contacts {
 
     private String personSite;
 
-
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getContactId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getContactId() {
         return contactId;
     }
 
-    public void setContactId(String contactId) {
+    public void setContactId(int contactId) {
         this.contactId = contactId;
     }
 

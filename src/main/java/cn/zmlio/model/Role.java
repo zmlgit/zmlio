@@ -15,19 +15,20 @@ import java.util.List;
 @Cacheable(value = true)
 public class Role {
 
-    private String roleId;
+    private int roleId;
 
     private String roleName;
 
     @JsonIgnore
     private List<Access> accesses;
+
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getRoleId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getRoleId() {
         return roleId;
     }
-    public void setRoleId(String roleId) {
+
+    public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
 
@@ -38,11 +39,13 @@ public class Role {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
     @ManyToMany(targetEntity = Access.class)
-    @JoinTable(name = "t_role_access",joinColumns = @JoinColumn(name = "access_id"),inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "t_role_access", joinColumns = @JoinColumn(name = "access_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     public List<Access> getAccesses() {
         return accesses;
     }
+
     public void setAccesses(List<Access> accesses) {
         this.accesses = accesses;
     }

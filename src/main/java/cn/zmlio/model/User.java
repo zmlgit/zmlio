@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -13,17 +14,34 @@ import java.util.Set;
 @Table(name = "t_user")
 public class User {
 
-    private String userId;//用户ID，不是用int型而使用uuid是为了防止被人遍历
+    // private String userId;//用户ID，不是用int型而使用uuid是为了防止被人遍历
+
+    private int userId;
+
+    private String username;
 
     private String email;
 
     private String phone;
 
-    private boolean actived;
+    private boolean actived = true;
 
-    private boolean enable;
+    public String getUsername() {
+        return username;
+    }
 
-    private boolean expired;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private boolean enable = true;
+
+    private boolean expired = false;
+
+
+    private Date createTime = new Date();
+
+    private Date lastModified = new Date();
 
     @JsonIgnore
     private String password;
@@ -35,17 +53,28 @@ public class User {
     private Set<Role> roles;
 
 
+//    @Id
+//    @GeneratedValue(generator = "uuid")
+//    @GenericGenerator(name = "uuid", strategy = "uuid")
+//    public String getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(String userId) {
+//        this.userId = userId;
+//    }
+
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getUserId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
+    @Column(name = "email", unique = true, nullable = true)
     public String getEmail() {
         return email;
     }
@@ -54,6 +83,7 @@ public class User {
         this.email = email;
     }
 
+    @Column(name = "phone", unique = true, nullable = true)
     public String getPhone() {
         return phone;
     }
@@ -103,12 +133,46 @@ public class User {
     }
 
     @OneToMany(targetEntity = Role.class)
-    @JoinTable(name = "t_user_role",joinColumns = @JoinColumn(name = "roleId"),inverseJoinColumns = @JoinColumn(name = "userId"))
+    @JoinTable(name = "t_user_role", joinColumns = @JoinColumn(name = "roleId"), inverseJoinColumns = @JoinColumn(name = "userId"))
     public Set<Role> getRoles() {
         return roles;
     }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", actived=" + actived +
+                ", enable=" + enable +
+                ", expired=" + expired +
+                ", createTime=" + createTime +
+                ", lastModified=" + lastModified +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

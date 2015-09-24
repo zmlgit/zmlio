@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "t_userDetail")
 public class UserDetail {
 
-    private String detailId;
+    private int detailId;
 
     private String nickName;
 
@@ -23,13 +23,12 @@ public class UserDetail {
     private User user;
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getDetailId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getDetailId() {
         return detailId;
     }
 
-    public void setDetailId(String detailId) {
+    public void setDetailId(int detailId) {
         this.detailId = detailId;
     }
 
@@ -40,14 +39,17 @@ public class UserDetail {
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
+
     @OneToOne(targetEntity = Attachment.class)
     @JoinColumn(name = "avartarId")
     public Attachment getAvartar() {
         return avartar;
     }
+
     public void setAvartar(Attachment avartar) {
         this.avartar = avartar;
     }
+
     @OneToOne(targetEntity = Contacts.class)
     @JoinColumn(name = "contact")
     public Contacts getContacts() {
@@ -57,8 +59,9 @@ public class UserDetail {
     public void setContacts(Contacts contacts) {
         this.contacts = contacts;
     }
+
     @OneToOne(targetEntity = User.class)
-    @JoinColumn(name="userId")
+    @JoinColumn(name = "userId")
     public User getUser() {
         return user;
     }

@@ -1,5 +1,6 @@
-package cn.zmlio.dao;
+package cn.zmlio.dao.impl;
 
+import cn.zmlio.dao.IBaseDao;
 import cn.zmlio.model.Pager;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -19,7 +20,8 @@ import java.util.List;
 /**
  * Created by ZML on 2015/8/5.
  */
-public class BaseDao {
+
+public class BaseDao implements IBaseDao{
     @Autowired
     private HibernateTemplate hibernateTemplate;
 

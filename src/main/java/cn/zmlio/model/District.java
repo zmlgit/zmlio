@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name="t_district")
 public class District {
 
-    public String distId;//id
+    public int distId;//id
 
     public String distName;//地区名称
 
@@ -23,13 +23,12 @@ public class District {
     public String areaCode;//电话区号
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getDistId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getDistId() {
         return distId;
     }
 
-    public void setDistId(String distId) {
+    public void setDistId(int distId) {
         this.distId = distId;
     }
 

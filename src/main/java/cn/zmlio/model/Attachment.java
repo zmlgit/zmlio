@@ -3,10 +3,7 @@ package cn.zmlio.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.net.URI;
 import java.util.Date;
 
@@ -18,7 +15,7 @@ import java.util.Date;
 @Table(name = "t_attachment")
 public class Attachment {
 
-    private String attchId;//附件ID
+    private int attchId;//附件ID
 
     @JsonIgnore
     private URI serverPath;//文件储存路径
@@ -34,13 +31,12 @@ public class Attachment {
     private String fileName;
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    public String getAttchId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getAttchId() {
         return attchId;
     }
 
-    public void setAttchId(String attchId) {
+    public void setAttchId(int attchId) {
         this.attchId = attchId;
     }
 

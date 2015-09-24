@@ -17,3 +17,11 @@
     background: linear-gradient(90deg, #e7e7e7, white, white, #e7e7e7);
     /* 标准的语法（必须放在最后） */
 }
+/* 设置页面高度为100%*/
+html, body {height: 100%;}
+
+.main{
+    min-height: 100%;
+    margin-top: -90px;
+    padding-top: 90px;
+}
