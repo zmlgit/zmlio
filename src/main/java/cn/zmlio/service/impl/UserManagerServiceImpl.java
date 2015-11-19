@@ -6,10 +6,13 @@ import cn.zmlio.model.Role;
 import cn.zmlio.model.User;
 import cn.zmlio.service.UserManagerService;
 import cn.zmlio.utils.EndecryptUtils;
+import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by ZML on 2015/9/23.
@@ -52,5 +55,31 @@ public class UserManagerServiceImpl implements UserManagerService {
     @Override
     public Role getRoleByName(String name) {
         return userDao.getRoleByName(name);
+    }
+
+    @Override
+    public Set<String> getUserRoleNames(String username) {
+
+        User user = this.queryUniqueUser(username);
+
+        if(user ==null){
+            return null;
+        }
+        Set<String> roleNames=new HashSet<>();
+
+        for (Role role : user.getRoles()) {
+            roleNames.add(role.getRoleName());
+        }
+        return roleNames;
+    }
+
+    @Override
+    public Set<String> getUserPermissions(String username) {
+        return null;
+    }
+
+    @Override
+    public User queryUniqueUser(String username) {
+        return userDao.getUserByPrincipal(username);
     }
 }

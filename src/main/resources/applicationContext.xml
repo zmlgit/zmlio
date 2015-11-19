@@ -19,23 +19,23 @@
         </property>
     </bean>
     <!--数据源-->
-<!--
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <!--
+        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 
-        <property name="username" value="${zmlio.datasource.db.username}"/>
+            <property name="username" value="${zmlio.datasource.db.username}"/>
 
-        <property name="url" value="${zmlio.datasource.db.url}"/>
+            <property name="url" value="${zmlio.datasource.db.url}"/>
 
-        <property name="driverClassName" value="${zmlio.datasource.db.drivername}"/>
+            <property name="driverClassName" value="${zmlio.datasource.db.drivername}"/>
 
-        <property name="password" value="${zmlio.datasource.db.password}"/>
+            <property name="password" value="${zmlio.datasource.db.password}"/>
 
-        <property name="initialSize" value="3"/>
+            <property name="initialSize" value="3"/>
 
-        <property name="filters" value="stat,log4j,wall"/>
+            <property name="filters" value="stat,log4j,wall"/>
 
-    </bean>
--->
+        </bean>
+    -->
 
     <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="dataSource">
         <property name="jdbcUrl" value="${zmlio.datasource.db.url}"/>
@@ -117,5 +117,5 @@
         <!--对所有的方法进行监控-->
         <aop:advisor advice-ref="txadvice" pointcut-ref="methodExecution"/>
     </aop:config>
-
+    <import resource="security.xml"/>
 </beans>

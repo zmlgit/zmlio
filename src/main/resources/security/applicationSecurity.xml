@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="securityRealm" class="com.fankunedu.onlinestudy.service.security.SecurityRealm">
+    <bean id="securityRealm" class="cn.zmlio.service.security.SecurityRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
         <property name="cacheManager" ref="shiroCacheManager"></property>
     </bean>
@@ -15,7 +15,7 @@
 
 
     <bean id="credentialsMatcher"
-          class="com.fankunedu.onlinestudy.service.security.RetryLimitHashedCredentialsMatcher">
+          class="cn.zmlio.service.security.RetryLimitHashedCredentialsMatcher">
         <constructor-arg index="0" ref="ehCacheManager"/>
         <property name="hashAlgorithmName" value="MD5"/>
         <property name="hashIterations" value="2"></property>
@@ -103,8 +103,8 @@
                 /lib/**=anon
                 #登录url
                 /user/login**=anon,authc
-                /user/register=anon
                 /user/logout=logout
+                /**=anon
             </value>
         </property>
     </bean>

@@ -24,7 +24,6 @@ public class InitController {
 
     private IBaseService baseService;
 
-
     private UserManagerService userManagerService;
 
     @Resource

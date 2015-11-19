@@ -17,16 +17,9 @@
     <link rel="stylesheet" href="${ctx}/lib/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="${ctx}/lib/bootstrap/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="${ctx}/style/main.css">
-    <script src="${ctx}/lib/jquery-1.11.2.min.js"></script>
-    <script src="${ctx}/lib/bootstrap/js/bootstrap.min.js"></script>
-    <!--[if lt IE 9]>
-    <script src="${ctx}/lib/html5shiv.min.js"></script>
-    <script src="${ctx}/lib/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header" style="position: relative;">
             <button class="collapsed navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
@@ -46,20 +39,20 @@
                 <li><a href="#">工作</a></li>
                 <li><a href="#">随笔</a></li>
                 <li><a href="#">收藏</a></li>
-                <li><a href=s"#">关于</a></li>
+                <li><a href="about.jsp">关于</a></li>
                 <li clas="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         用户 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <%--<shiro:notAuthenticated>--%>
+                        <shiro:notAuthenticated>
                         <li><a href="#">注册</a></li>
                         <li><a href="#">登录</a></li>
-                        <%--</shiro:notAuthenticated>--%>
-                        <%--<shiro:authenticated>--%>
-                        <%--<li><a href="#">注销</a></li>--%>
-                        <%--<li><a href="#">个人中心</a></li>--%>
-                        <%--</shiro:authenticated>--%>
+                        </shiro:notAuthenticated>
+                        <shiro:authenticated>
+                        <li><a href="#">注销</a></li>
+                        <li><a href="#">个人中心</a></li>
+                        </shiro:authenticated>
                     </ul>
                 </li>
             </ul>
@@ -67,7 +60,7 @@
 
     </div>
 </nav>
-<sitemesh:write property="body"></sitemesh:write>
+<sitemesh:write property="body" writeEntireProperty="true"></sitemesh:write>
 <footer class="text-center navbar navbar-default " style="margin-top: -31px;margin-bottom: 0px;">
     <p style="margin:auto">
         <small>Powered by:<a href="mailto:zmanliang@163.com">zmanliang@163.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
@@ -75,20 +68,11 @@
     </p>
 </footer>
 </body>
-<script type="text/javascript">
-    var count = 0;
-    function toggle() {
-        if (count++ % 2 == 0) {
-            $("table").show();
-        } else {
-            $("table").hide();
-        }
-    }
-
-    $("#nav li").hover(function () {
-        $(this).addClass("active");
-    }, function () {
-        $(this).removeClass("active");
-    });
-</script>
+<script src="${ctx}/lib/jquery-1.11.2.min.js"></script>
+<script src="${ctx}/lib/bootstrap/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+<script src="${ctx}/lib/html5shiv.min.js"></script>
+<script src="${ctx}/lib/respond.min.js"></script>
+<![endif]-->
+<script src="${ctx}/js/common.js"></script>
 </html>
