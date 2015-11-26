@@ -2,6 +2,7 @@ package cn.zmlio.service.impl;
 
 import cn.zmlio.dao.IBaseDao;
 import cn.zmlio.service.IBaseService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.io.Serializable;
  * Created by ZML on 2015/9/24.
  */
 @Service
-public class BaseService<T> implements IBaseService{
+public class BaseService<T> implements IBaseService<Object>{
 
     /**
      * 保存或者更新
@@ -22,7 +23,8 @@ public class BaseService<T> implements IBaseService{
     private IBaseDao iBaseDao;
 
 
-    public T  get(Class t,Serializable id){
+    @SuppressWarnings("unchecked")
+	public T  get(Class<?> t,Serializable id){
      return (T)iBaseDao.get(t ,id);
     }
 

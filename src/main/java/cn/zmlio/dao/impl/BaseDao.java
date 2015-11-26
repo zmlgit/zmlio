@@ -25,8 +25,6 @@ public class BaseDao implements IBaseDao{
     @Autowired
     private HibernateTemplate hibernateTemplate;
 
-    private SessionFactory sessionFactory;
-
     public HibernateTemplate getHibernateTemplate() {
         return hibernateTemplate;
     }
@@ -46,7 +44,6 @@ public class BaseDao implements IBaseDao{
 
     @Resource
     public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 
 /*

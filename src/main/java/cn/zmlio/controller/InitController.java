@@ -4,11 +4,13 @@ import cn.zmlio.model.*;
 import cn.zmlio.service.IBaseService;
 import cn.zmlio.service.UserManagerService;
 import cn.zmlio.utils.DistrictUtils;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;
@@ -22,7 +24,7 @@ import java.util.Set;
 @Controller
 public class InitController {
 
-    private IBaseService baseService;
+    private IBaseService<Object> baseService;
 
     private UserManagerService userManagerService;
 
@@ -32,7 +34,7 @@ public class InitController {
     }
 
     @Resource
-    public void setBaseService(IBaseService baseService) {
+    public void setBaseService(IBaseService<Object> baseService) {
         this.baseService = baseService;
     }
 

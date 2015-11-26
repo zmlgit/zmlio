@@ -1,12 +1,10 @@
 package cn.zmlio.service.impl;
 
-import cn.zmlio.dao.IBaseDao;
 import cn.zmlio.dao.UserDao;
 import cn.zmlio.model.Role;
 import cn.zmlio.model.User;
 import cn.zmlio.service.UserManagerService;
 import cn.zmlio.utils.EndecryptUtils;
-import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

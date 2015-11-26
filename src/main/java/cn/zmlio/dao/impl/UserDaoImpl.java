@@ -19,7 +19,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
         String hql = "SELECT count(*) FROM User";
 
-        List result = getHibernateTemplate().find(hql);
+        List<?> result = getHibernateTemplate().find(hql);
 
         for (Object object : result) {
             return (long) object;
@@ -31,7 +31,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     public Role getRoleByName(String name) {
         String hql = "FROM Role r where r.roleName = ?";
 
-        List result = getHibernateTemplate().find(hql, name);
+        List<?> result = getHibernateTemplate().find(hql, name);
 
 
         for (Object object : result) {

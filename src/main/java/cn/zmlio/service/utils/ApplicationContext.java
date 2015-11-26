@@ -15,7 +15,8 @@ public class ApplicationContext implements ApplicationContextAware {
 
     private static Logger logger = Logger.getLogger(ApplicationContext.class);
 
-    @Override
+    @SuppressWarnings("static-access")
+	@Override
     public void setApplicationContext(org.springframework.context.ApplicationContext applicationContext) throws BeansException {
         this.context = applicationContext;
         logger.info("context registed");

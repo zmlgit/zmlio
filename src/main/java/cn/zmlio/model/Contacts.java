@@ -1,7 +1,5 @@
 package cn.zmlio.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
